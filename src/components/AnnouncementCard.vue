@@ -72,11 +72,12 @@ const failed = ref(false);
 
 // 与 Firefly 的动态一致：置顶优先，其余按发布时间从新到旧
 function toItem(memo) {
-  const id = String(memo.name || memo.id || "").split("/").pop();
   const time = Date.parse(memo.createTime || memo.displayTime || "") || 0;
+  const uid = String(memo.name || memo.id || "").split("/").pop();
+  const id = uid || `memo-${time}`;
   const attachments = Array.isArray(memo.attachments) ? memo.attachments : [];
   return {
-    id: id || `memo-${time}`,
+    id,
     time,
     datetime: time ? new Date(time).toISOString() : "",
     text: plainText(memo.content),
@@ -84,7 +85,7 @@ function toItem(memo) {
     hasImage:
       /!\[[^\]]*\]\([^)]+\)/.test(memo.content || "") ||
       attachments.some((a) => String(a.type || "").startsWith("image/")),
-    link: id ? `${memosBase.value}/m/${id}` : memosBase.value,
+    link: uid ? `${memosBase.value}/memos/${uid}` : memosBase.value,
   };
 }
 
