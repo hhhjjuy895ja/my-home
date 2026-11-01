@@ -8,7 +8,7 @@ export const siteConfig = {
   // 例如 "/images/logo.png"（图片放 public/images/ 目录）或 "https://xxx.com/logo.png"
   logo: "",
   // 浏览器标签页标题
-  pageTitle: "主页",
+  pageTitle: "FQHome",
   // 问候语（简介卡片大标题）
   greet: "Hello World!",
   // 一句话介绍（也是打字机轮换的第一句）
@@ -91,7 +91,12 @@ export const siteConfig = {
   // 站点监控卡（monitor）：检测各站点是否可访问（访客浏览器直连探测，
   // 显示连通状态与响应耗时，60 秒自动刷新）。url 需带 https://
   siteMonitors: [
-    { name: "示例站点", url: "https://www.example.com/" },
+    { name: "FQhub", url: "https://nav.fqhub.dpdns.org/" },
+    { name: "FQ-Img", url: "https://imgbed.fqhub.dpdns.org/" },
+    { name: "临时邮箱", url: "https://email.fqhub.dpdns.org/" },
+    { name: "Edgeever", url: "https://https://edgeever.fqhub.dpdns.org/" },
+    { name: "Nodewarden", url: "https://nodewarden.fqhub.dpdns.org/" },
+    { name: "Memos", url: "https://https://memos.fqhub.dpdns.org/" },
     // { name: "博客", url: "https://blog.example.com/" },
   ],
   // 热榜平台与顺序（hotlist 卡），可用 key：
