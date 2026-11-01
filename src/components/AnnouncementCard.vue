@@ -101,8 +101,14 @@ async function detectMemoRoute(signal) {
       // 该接口不可用则尝试下一个
     }
   }
-  // 无法识别时按当前版本路由兜底
-  return "memos";
+  return null;
+}
+
+// 兜底识别：v1.x 的 memo 返回 attachments，旧版返回 resources
+function inferMemoRoute(memos) {
+  const first = (memos || []).find(Boolean);
+  if (!first) return "memos";
+  return Array.isArray(first.attachments) ? "memos" : "m";
 }
 
 // 与 Firefly 的动态一致：置顶优先，其余按发布时间从新到旧
@@ -142,13 +148,14 @@ async function fetchMemos(signal) {
   url.searchParams.set("pageSize", String(PAGE_SIZE));
   if (memosUser) url.searchParams.set("parent", memosUser);
 
-  const [route, data] = await Promise.all([
+  const [detectedRoute, data] = await Promise.all([
     detectMemoRoute(signal),
     fetch(url, { signal, headers: { Accept: "application/json" } }).then((res) => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       return res.json();
     }),
   ]);
+  const route = detectedRoute || inferMemoRoute(data.memos);
 
   return (data.memos || [])
     .filter((m) => !m.state || m.state === "NORMAL")
@@ -166,7 +173,7 @@ onMounted(async () => {
   }
   try {
     items.value = await cachedFetch({
-      key: `announce_memos:${memosBase.value}:${memosUser}`,
+      key: `announce_memos_v2:${memosBase.value}:${memosUser}`,
       ttl: CACHE_MS,
       loader: fetchMemos,
     });
