@@ -94,9 +94,9 @@ export const siteConfig = {
     { name: "FQhub", url: "https://nav.fqhub.dpdns.org/" },
     { name: "FQ-Img", url: "https://imgbed.fqhub.dpdns.org/" },
     { name: "临时邮箱", url: "https://email.fqhub.dpdns.org/" },
-    { name: "Edgeever", url: "https://https://edgeever.fqhub.dpdns.org/" },
+    { name: "Edgeever", url: "https://edgeever.fqhub.dpdns.org/" },
     { name: "Nodewarden", url: "https://nodewarden.fqhub.dpdns.org/" },
-    { name: "Memos", url: "https://https://memos.fqhub.dpdns.org/" },
+    { name: "Memos", url: "https://memos.fqhub.dpdns.org/" },
     // { name: "博客", url: "https://blog.example.com/" },
   ],
   // 热榜平台与顺序（hotlist 卡），可用 key：
