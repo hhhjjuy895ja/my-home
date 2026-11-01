@@ -2,13 +2,13 @@
 
 export const siteConfig = {
   // 站点名称（左上角 Logo 文字与页脚）
-  siteName: "My Site",
+  siteName: "UyiHub",
   // Logo 图标（可选）：留空 = 使用内置的「Z」徽章 SVG；
   // 填图片路径或 URL 即可整体替换（载入页、左上角、浏览器标签页 favicon 同步生效），
   // 例如 "/images/logo.png"（图片放 public/images/ 目录）或 "https://xxx.com/logo.png"
   logo: "",
   // 浏览器标签页标题
-  pageTitle: "我的主页",
+  pageTitle: "主页",
   // 问候语（简介卡片大标题）
   greet: "Hello World!",
   // 一句话介绍（也是打字机轮换的第一句）
@@ -16,15 +16,14 @@ export const siteConfig = {
   // 打字机轮换标语：填多项则循环打字展示；只保留一项或删掉此项则固定显示 desc
   motto: [
     "记录、分享、创造。",
-    "欢迎来到我的个人主页，这里收录了我的博客与资源站。",
     "把折腾当成生活方式。",
   ],
   // 建站日期（页脚显示「本站已运行 N 天」）
-  siteStart: "2025-01-01",
+  siteStart: "2026-10-01",
   // 署名（页脚版权显示的名字）
-  author: "Your Name",
+  author: "qquyihub",
   // 署名链接（可选）：页脚署名会超链接到此地址，如你的主页仓库，留空则显示纯文字
-  repo: "https://github.com/your-github-name/homepage",
+  repo: "https://github.com/qquyihub",
   // 鼠标特效：自定义圆点光标 + 移动/点击涟漪
   clickEffect: true,
   // 天气城市（可选）：填城市 adcode 可固定显示该城市，如 "410100" 郑州；
@@ -47,12 +46,12 @@ export const siteConfig = {
     // 卡片名称，想叫「公告」「动态」「说说」都可以
     title: "公告",
     // Memos 实例地址（不要带结尾斜杠）
-    apiUrl: "https://memos.example.com",
+    apiUrl: "https://memos.fqhub.dpdns.org",
     // 只显示指定用户的动态（可选）：填 Memos 返回的 creator 标识，如 "users/yourname"；
     // 留空 = 显示所有公开动态。注意区分大小写，需与 API 返回的 creator 完全一致
     parent: "",
     // 卡片最多展示几条（置顶动态优先，其余按发布时间从新到旧）
-    limit: 3,
+    limit: 5,
   },
 
   /* ---------- 主页卡片开关 ---------- */
@@ -77,9 +76,9 @@ export const siteConfig = {
   panelTips: [],
   panelCards: ["news", "music", "monitor", "hotlist", "epic"],
   // GitHub 用户名（GitHub 卡展示 Followers / Repos 数据；不把 github 加进 panelCards 就不显示）
-  githubUser: "your-github-name",
+  githubUser: "qquyihub",
   // 网易云音乐歌单 ID（音乐播放卡），从歌单页地址栏 playlist?id=xxx 获取
-  musicPlaylist: "3778678",
+  musicPlaylist: "12731883911",
   // ── 播放直链来源 ────────────────────────────────
   //   "meting"（默认）：走公共 Meting 接口，开箱即用，不依赖任何额外部署。
   //   "proxy"：走仓库自带的 serverless 解析（api/ + lib/）——注意该模式依赖 Node 运行时
@@ -111,13 +110,13 @@ export const socialLinks = [
     name: "GitHub",
     icon: "github",
     tip: "去 GitHub 看看",
-    url: "https://github.com/your-github-name",
+    url: "https://github.com/qquyihub",
   },
   {
     name: "Email",
     icon: "mail",
     tip: "来封邮件吧",
-    url: "mailto:me@example.com",
+    url: "mailto:me@fqhub.dpdns.org",
   },
 ];
 
@@ -125,16 +124,10 @@ export const socialLinks = [
 // icon 可选：blog / cloud / music / video / code / star
 export const siteLinks = [
   {
-    name: "博客",
+    name: "FQhub",
     desc: "blog.example.com",
-    icon: "blog",
-    url: "https://blog.example.com/",
-  },
-  {
-    name: "资源站",
-    desc: "www.example.com",
-    icon: "cloud",
-    url: "https://www.example.com/",
+    icon: "star",
+    url: "https://nav.fqhub.dpdns.org/",
   },
   // 想加更多站点？照着上面的格式复制一份即可，例如：
   // { name: "导航站", desc: "nav.example.com", icon: "star", url: "https://nav.example.com/" },
