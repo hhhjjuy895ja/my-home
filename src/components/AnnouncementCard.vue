@@ -35,13 +35,13 @@
         </a>
       </li>
     </ul>
-    <p v-else-if="loading" class="tip">正在获取公告…</p>
+    <p v-else-if="loading" class="tip">正在获取{{ title }}…</p>
     <p v-else-if="failed" class="tip">
-      公告加载失败，<a v-if="memosBase" :href="memosBase" target="_blank" rel="noopener">去 Memos 看看 →</a>
+      {{ title }}加载失败，<a v-if="memosBase" :href="memosBase" target="_blank" rel="noopener">去 Memos 看看 →</a>
     </p>
     <p v-else-if="!memosBase" class="tip">未配置 Memos 地址</p>
     <p v-else class="tip">
-      暂无公开公告，<a :href="memosBase" target="_blank" rel="noopener">去 Memos 看看 →</a>
+      暂无公开{{ title }}，<a :href="memosBase" target="_blank" rel="noopener">去 Memos 看看 →</a>
     </p>
 
     <a v-if="items.length" class="more" :href="memosBase" target="_blank" rel="noopener">
