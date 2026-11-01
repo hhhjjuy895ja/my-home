@@ -62,8 +62,8 @@ const PAGE_SIZE = 100; // 多取一些再在前端过滤/排序，避免只能�
 
 const announcement = siteConfig.announcement || {};
 const title = computed(() => String(announcement.title || "公告"));
-const memosBase = computed(() => String(announcement.memosUrl || "").replace(/\/+$/, ""));
-const memosUser = String(announcement.user || "").trim();
+const memosBase = computed(() => String(announcement.apiUrl || "").replace(/\/+$/, ""));
+const memosUser = String(announcement.parent || "").trim();
 const limit = Math.max(1, Number(announcement.limit) || 3);
 
 const items = ref([]);

@@ -95,7 +95,7 @@
 | `siteConfig.author` | 页脚版权署名 |
 | `siteConfig.clickEffect` | 自定义光标 + 涟漪特效开关 |
 | `siteConfig.weatherCity` | 天气城市 adcode，留空 = 自动定位 |
-| `siteConfig.announcement` | 公告卡配置：`title` 卡片名称（如「公告」「动态」）、`memosUrl` Memos 实例地址、`user` 只显示某用户（如 `users/sooday`，留空显示全部公开动态）、`limit` 展示条数 |
+| `siteConfig.announcement` | 公告卡配置：`title` 卡片名称（如「公告」「动态」）、`apiUrl` Memos 实例地址、`parent` 只显示某用户（如 `users/yourname`，留空显示全部公开动态）、`limit` 展示条数 |
 | `siteConfig.homeCards` | 主页各卡片开关（greet / announce / hitokoto / clock / weather / siteLinks），`false` 隐藏 |
 | `siteConfig.panelCards` | 二级面板卡片排列：数组顺序 = 排列顺序，删掉某项 = 隐藏该卡 |
 | `siteConfig.githubUser` | GitHub 卡的用户名（需把 `github` 加入 `panelCards` 才显示） |
@@ -156,17 +156,18 @@ musicBuiltin: true,      // 是否请求同源的 /api/url
 ```js
 announcement: {
   title: "公告",                          // 卡片名称，可改成「动态」「说说」等
-  memosUrl: "https://memos.example.com",  // 你的 Memos 实例地址（不带结尾斜杠）
-  user: "",                               // 只显示某用户，如 "users/sooday"；留空显示全部公开动态
+  apiUrl: "https://memos.example.com",    // 你的 Memos 实例地址（不带结尾斜杠）
+  parent: "",                             // 只显示某用户，如 "users/yourname"；留空显示全部公开动态
   limit: 3,                               // 卡片最多展示几条
 },
 ```
+
+字段命名与 [Firefly 的动态配置](https://github.com/CuteLeaf/Firefly)（`apiUrl` / `parent`）保持一致。
 
 Memos 端需注意两点：
 
 1. 动态可见性设为 **公开（PUBLIC）**——公告卡由访客浏览器直接请求 Memos API，未登录状态只能读到公开动态；
 2. 允许跨域（CORS）：在 Memos 服务端或反向代理放行前端域名（返回 `Access-Control-Allow-Origin`）。
-   本站线上使用的 Memos 实例已返回 `Access-Control-Allow-Origin: *`，无需额外处理。
 
 公告数据在浏览器本地缓存 10 分钟；Memos 更新后，访客刷新页面时最多 10 分钟拉取到最新内容。
 点击卡片右下角的「查看全部 →」可直接进入 Memos 站点。
